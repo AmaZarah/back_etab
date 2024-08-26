@@ -1,0 +1,94 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Teacher</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/mystyles.css' %}">
+</head>
+<body>
+    <div class="container-general">
+        <div class="navbar">
+            <header >
+                <div class="titre">
+                    <h1><img src="{% static 'img/logo.jpeg' %} "
+                        width="50px"
+                        height="50px"
+                        class="logo">mon etab
+                    </h1>
+                    
+                <ul class="menu">
+                    <li><a href=" {% url 'dashboard:index'%}" class="active"><a href="" alt=""><img src="logo.jpeg" alt="" class="logo">Dashboard</a></li>
+                    <li><a href="{% url 'student:liststudent'%}"><i class="fas fa-book-reader"></i> Student</a></li>
+                    <li><a href="{% url 'teacher:llistteacher'%}"><i class="fas fa-chalkboard-teacher" ></i> Teacher</a></li>
+                    <li><a href="{% url 'user:listuser'%}"><i class="fas fa-user" ></i> User</a></li>
+                    <li><a href="{% url 'repot:rappt'%}"><i class="fas fa-file-alt" ></i> Repot</a></li>
+                </ul>
+                    <a href="{% url 'dashboard:login'%}" class="out"><i class="fas fa-sign-out-alt" ></i> Log-out</a>
+    
+    
+            </header>
+        </div>
+        <div class="Tableau">
+            <div class="back">
+                <h5><a href="{% url 'dashboard:index'%}">back</a></h5>
+
+            </div>
+            <div class="titre">
+                <h2>Add teacher</h2>
+            </div>
+            <div class="formuaire">
+                <form action="" method="post">
+                    <div class="formu">
+                        <input type="text" placeholder="nom">
+                    </div>
+                    <div class="formu">
+                        <input type="text" placeholder="prenon">
+                    </div>
+                    <div class="radio">
+                        <label>Genre</label>
+                    <input type="radio" id="homme" name="genre" value="Homme" required>
+                    <label for="homme">Homme</label>
+                    <input type="radio" id="femme" name="genre" value="Femme" required>
+                    <label for="femme">Femme</label>
+                        
+                    </div>
+                    <div class="formu">
+                        <input type="text" placeholder="matricule">
+                    </div>
+                    <div class="formu">
+                        <input type="date" placeholder="date de naissance">
+                    </div>
+                    <div class="radio">
+                
+                        <label for="classe">Matiere</label>
+                    <select id="classe" name="classe" required>
+                        <option value="1ère">Maths</option>
+                        <option value="2nde">Physique</option>
+                        <option value="3ème">SVT</option>
+                        <option value="4ème">ANGLAIS</option>
+                        <option value="5ème">FRANCAIS</option>
+                    </select>
+                    </div>
+                    <div class="formu">
+                        <input type="text" placeholder="numéro de telephone">
+                    </div>
+                    <div class="formu">
+                        <input type="text" placeholder="ville">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="reset" class="cancel-btn">Cancel</button>
+                        <button type="submit" class="submit-btn">Send</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

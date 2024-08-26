@@ -1,0 +1,99 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/mystyles.css' %}">
+    <title>List Student</title>
+</head>
+<body>
+    <div class="container-general">
+        <div class="navbar">
+            <header >
+                <div class="titre">
+                    <h1><img src="{% static 'img/logo.jpeg' %} "
+                        width="50px"
+                        height="50px"
+                        class="logo">mon etab
+                    </h1>
+                    
+                <ul class="menu">
+                    <li><a href=" {% url 'dashboard:index'%}" class="active"><a href="" alt=""><img src="logo.jpeg" alt="" class="logo">Dashboard</a></li>
+                    <li><a href="{% url 'student:liststudent'%}"><i class="fas fa-book-reader"></i> Student</a></li>
+                    <li><a href="{% url 'teacher:llistteacher'%}"><i class="fas fa-chalkboard-teacher" ></i> Teacher</a></li>
+                    <li><a href="{% url 'user:listuser'%}"><i class="fas fa-user" ></i> User</a></li>
+                    <li><a href="{% url 'repot:rappt'%}"><i class="fas fa-file-alt" ></i> Repot</a></li>
+                </ul>
+                    <a href="{% url 'dashboard:login'%}" class="out"><i class="fas fa-sign-out-alt" ></i> Log-out</a>
+    
+    
+            </header>
+        </div>
+        <div class="Tableau">
+            <div class="main-container">
+                <div class="main">
+        
+                    <div class="table-container">
+                        <h2>Student (2)</h2>
+                        <li><a href="{% url 'student:adstudent'%}" ><i class="fas fa-plus-circle plus" ></i> Add Student </a></li>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Genre</th>
+                                    <th>Classe</th>
+                                    <th>Matricule</th>
+                                    <th>Age</th>
+                                    <th>Téléphone</th>
+                                    <th>Ville</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Koffi</td>
+                                    <td>George</td>
+                                    <td>M</td>
+                                    <td>Tle</td>
+                                    <td>GDJ7GDGD</td>
+                                    <td>25</td>
+                                    <td>0123456789</td>
+                                    <td>Bonoua</td>
+                                    <td><a href="{% url 'student:editstudent'%}" class="modifier"> Modifier</a><a onclick="message()" class="supprimer">Supprimer</a></td>
+                                </tr>
+        
+                                <tr>
+                                    <td>Koné</td>
+                                    <td>Sali</td>
+                                    <td>F</td>
+                                    <td>2nd</td>
+                                    <td>GDJ7GDGB</td>
+                                    <td>22</td>
+                                    <td>0123456789</td>
+                                    <td>Abidjan</td>
+                                    <td><a href="{% url 'student:editstudent'%}" class="modifier"> Edit</a><a onclick="message()" class="supprimer">Delete</a></td>
+                                </tr>
+                                <!-- Ajouter d'autres lignes pour plus d'artisans -->
+                            </tbody>
+                        </table>
+                    </div>
+        
+                </div>
+            
+            
+
+        </div>
+    </div>
+    
+</body>
+<script>
+
+    function message(){
+        alert('WARNING DO YOU WANT TO DELETE THIS STUDENT  ?')
+    }
+</script>
+</html>

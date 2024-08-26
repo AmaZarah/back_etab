@@ -1,0 +1,128 @@
+
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/mystyles.css' %}">
+</head>
+<body>
+    <div class="container-general">
+        <div class="navbar">
+            <header >
+                <div class="titre">
+                    <h1><img src="logo.jpeg" alt="" class="logo">mon etab</h1>
+        
+                </div>
+                    
+                 <ul class="menu">
+                    <li><a href=" {% url 'dashboard:index'%}" class="active"><a href="" alt=""><img src="logo.jpeg" alt="" class="logo">Dashboard</a></li>
+                    <li><a href="{% url 'student:liststudent'%}"><i class="fas fa-book-reader"></i> Student</a></li>
+                    <li><a href="{% url 'teacher:llistteacher'%}"><i class="fas fa-chalkboard-teacher" ></i> Teacher</a></li>
+                    <li><a href="{% url 'user:listuser'%}"><i class="fas fa-user" ></i> User</a></li>
+                    <li><a href="{% url 'repot:rappt'%}"><i class="fas fa-file-alt" ></i> Repot</a></li>
+                </ul>
+                    <a href="{% url 'dashboard:login'%}" class="out"><i class="fas fa-sign-out-alt" ></i> Log-out</a>
+    
+            </header>
+        </div>
+        <div class="Tableau">
+         <div class="titre">
+            <h1><img src="{% static 'img/logo.jpeg' %} "
+                width="50px"
+                height="50px"
+                class="logo">mon etab
+            </h1>
+            <div class="table">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Nombre d'élèves:</h5>
+                        <p>128 100</p>
+    
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Nombre de Professeurs:</h5>
+                        <p>128 100</p>
+    
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                            <h5>Nombre d'Utilisateurs:</h5>
+                            <p>128 100</p>
+        
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Elèves par genre:</h5>
+                            <div class="relative w-full h-64">
+                                <canvas id="pieChart" width="100" height="100"></canvas>
+                             </div>
+                             <div class="mt-4">
+                                <ul class="list-none">
+                                   <li class="flex items-center mb-2">
+                                      <span
+                                         class="inline-block w-4 h-4 bg-blue-500 mr-2"
+                                      ></span>
+                                      Homme
+                                   </li>
+                                   <li class="flex items-center">
+                                      <span
+                                         class="inline-block w-4 h-4 bg-red-500 mr-2"
+                                      ></span>
+                                      Femme
+                                   </li>
+                                </ul>
+                             </div>
+                           </div>
+                           </div>
+                     </div>
+                 </div>
+             </div>
+         
+            </div>
+            <script>
+             const ctx = document.getElementById('pieChart').getContext('2d');
+             const pieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                   labels: ['Homme', 'Femme'],
+                   datasets: [
+                      {
+                         data: [60, 40], // Exemples de données
+                         backgroundColor: ['#3498db', '#e74c3c'], // Couleurs pour Homme et Femme
+                         borderWidth: 1,
+                      },
+                   ],
+                },
+                options: {
+                   responsive: true,
+                   maintainAspectRatio: false,
+                   plugins: {
+                      legend: {
+                         display: false, // On désactive la légende intégrée pour utiliser la légende personnalisée
+                      },
+                   },
+                },
+             });
+          </script>
+                            
+        
+                        </div>
+    
+                </div>
+                
+                
+    
+            
+    
+        </div>
+     </div>
+          
+    
+</body>
+</html>
